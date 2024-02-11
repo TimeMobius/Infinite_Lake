@@ -55,7 +55,7 @@ def process_files(file_chunk, output_directory, text_key, sql_alchemy_path, glob
                     jsonl_file.write(line + '\n')
                     current_jsonl_size += len(line.encode('utf-8')) + 1
                     current_line_number += 1
-            session.commit()
+        session.commit()
     finally:
         session.commit()
         session.close()
