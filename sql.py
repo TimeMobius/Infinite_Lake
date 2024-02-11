@@ -1,9 +1,15 @@
-# sql.py
-from sqlalchemy import create_engine, Column, Integer, String, BigInteger, SmallInteger
+from sqlalchemy import create_engine, Column, Integer, String, BigInteger, SmallInteger, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
+from datetime import datetime
+import pytz  # 导入pytz模块
 
 Base = declarative_base()
+
+def get_utc_plus_8():
+    # 获取当前时间，并将其转换为UTC+8时区
+    utc_plus_8 = pytz.timezone('Asia/Shanghai')  # 你可以根据需要选择适当的时区
+    return datetime.now(utc_plus_8)
 
 class TextMeta(Base):
     __tablename__ = 'text_meta'
@@ -16,6 +22,7 @@ class TextMeta(Base):
     original_size = Column(BigInteger)
     lake_size = Column(BigInteger)
     language = Column(String(50))
+    added_date = Column(DateTime, default=get_utc_plus_8)  # 使用UTC+8时区的时间作为默认值
 
 class TextLine(Base):
     __tablename__ = 'text_line'
