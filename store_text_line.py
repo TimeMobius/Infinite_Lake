@@ -14,7 +14,7 @@ def store_text_line(session, line_id, text, other):
         )
 
         session.add(text_line)
-        session.commit()
+        
     except SQLAlchemyError as e:
         session.rollback()
         print(f"Error storing text line: {e}")

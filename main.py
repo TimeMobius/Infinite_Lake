@@ -140,8 +140,6 @@ class Import_Text_Item(BaseModel):
 @app.post("/api/text/import")
 async def text_logging(item: Import_Text_Item):
     session = session_factory()
-    # 获取并行线程数
-    workers = settings.convert.workers
     try:
         start_at = time.time()
         
@@ -170,7 +168,7 @@ async def text_logging(item: Import_Text_Item):
 
         # 判断 original_format 是否为 parquet
         if new_text_meta.original_format.lower() == 'parquet':
-            save_parquet_to_jsonl(item.dataset_path, folder_path, item.text_key, session_factory, workers)
+            save_parquet_to_jsonl(item.dataset_path, folder_path, item.text_key, settings)
 
 
         end_at = time.time()
