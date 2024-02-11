@@ -1,0 +1,4 @@
+fastapi==0.95.1
+uvicorn==0.22.0
+requests==2.30.0
+loguru==0.7.0
