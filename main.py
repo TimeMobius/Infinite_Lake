@@ -75,7 +75,6 @@ def startup_event():
 
     # 获取会话工厂
     session_factory = get_session_factory(engine)
-    print("Database initialized and session factory created successfully.")
 
 
 
