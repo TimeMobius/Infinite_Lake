@@ -18,9 +18,6 @@ def clean_text_line(data):
     data = re.sub(r'\n\n', "\n", data)
     data = re.sub(r"\n\s*\n", "\n", data)
     data = re.sub(r'\n+', '\n', data)
+    data = re.sub(r'\s+$', '', data)
     
-    if data.endswith('\n'):
-        data += '\n'
-    else:
-        data += '\n\n'
     return data
