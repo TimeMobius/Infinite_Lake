@@ -3,21 +3,22 @@
 # 服务监听配置
 server:
   port: 8080  # 监听端口号
+  host: 0.0.0.0
+  workers: 16
 
 # 数据湖存储路径配置
 storage:
   data_lake_path: "/path/to/your/datalake/storage"  # 数据湖存储路径
 
+# 数据处理配置
+convert:
+  workers: 16  # 并行处理线程数
+
 # 数据库连接配置
 database:
   # SQL 数据库连接信息
   sql:
-    type: "mysql"  # 数据库类型，例如: postgresql, mysql, sqlite等
-    host: "localhost"   # 数据库服务器地址
-    port: 5432          # 数据库服务端口
-    database: "lakehouse_db"  # 数据库名称
-    user: "user"        # 数据库用户名
-    password: "password"  # 数据库密码
+    SQLAlchemy_path: "mysql+pymysql://root:password@localhost:3306/lakehouse_db"  # 数据库类型，例如: postgresql, mysql, sqlite等
 
   # Qdrant 数据库连接信息
   qdrant:

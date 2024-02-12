@@ -10,7 +10,7 @@ import math
 JSONL_FILE_SIZE_LIMIT = 1 * 1024 * 1024 * 1024  # 1G
 
 
-def process_files(file_chunk, output_directory, text_key, sql_alchemy_path, global_index_start):
+def process_parquet(file_chunk, output_directory, text_key, sql_alchemy_path, global_index_start):
 
     # 获取数据库引擎
     engine = get_engine(sql_alchemy_path)
@@ -88,7 +88,7 @@ def save_parquet_to_jsonl(dataset_directory: str, output_directory: str, text_ke
         futures = []
         for i, file_chunk in enumerate(file_chunks):
             global_index_start = math.floor(i * 65536 / workers)
-            futures.append(executor.submit(process_files, file_chunk, output_directory, text_key, sql_alchemy_path, global_index_start))
+            futures.append(executor.submit(process_parquet, file_chunk, output_directory, text_key, sql_alchemy_path, global_index_start))
 
         for future in as_completed(futures):
             future.result()  # Wait for all threads to complete
