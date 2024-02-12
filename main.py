@@ -20,7 +20,7 @@ import uvicorn
 import argparse
 
 from settings import Settings
-from sql import get_engine, get_session_factory, initialize_database, TextMeta
+from plugins.sql import get_engine, get_session_factory, initialize_database, TextMeta
 
 from convert.parquet import save_parquet_to_jsonl
 

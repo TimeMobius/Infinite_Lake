@@ -1,6 +1,6 @@
 # store_text_line.py
 from sqlalchemy.exc import SQLAlchemyError
-from sql import TextLine
+from plugins.sql import TextLine
 
 def store_text_line(session, line_id, text, other):
     try:

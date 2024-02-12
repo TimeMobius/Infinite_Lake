@@ -2,9 +2,12 @@ import os
 import json
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor, as_completed
 from datasets import load_dataset
-from store_text_line import store_text_line
-from sql import get_engine, get_session_factory, initialize_database
 import math
+
+from plugins.store_text_line import store_text_line
+from plugins.clean_text_line import clean_text_line
+from plugins.sql import get_engine, get_session_factory, initialize_database
+
 
 # 定义1G的大小限制
 JSONL_FILE_SIZE_LIMIT = 1 * 1024 * 1024 * 1024  # 1G
@@ -44,6 +47,7 @@ def process_parquet(file_chunk, output_directory, text_key, sql_alchemy_path, gl
                         session.commit()
 
                     text = item[text_key]
+                    text = clean_text_line(text)
                     item_copy = item.copy()
                     del item_copy[text_key]
                     other = json.dumps(item_copy, ensure_ascii=False)
