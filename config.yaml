@@ -18,19 +18,19 @@ convert:
 database:
   # SQL 数据库连接信息
   sql:
-    SQLAlchemy_path: "mysql+pymysql://root:cetc15s@192.168.10.58:3306/lakehouse_db"  # 数据库类型，例如: postgresql, mysql, sqlite等
+    SQLAlchemy_path: ""  # 数据库类型，例如: postgresql, mysql, sqlite等
 
   # Qdrant 数据库连接信息
   qdrant:
-    host: "192.168.10.58"   # Qdrant服务地址
+    host: ""   # Qdrant服务地址
     port: 6333          # Qdrant服务端口
     collection: "your_collection_name"  # Qdrant集合名称
 
 # 数据集导出配置
 export:
   base_path: "/mnt/data/Lake_Data"  # 数据集导出的主路径
-  input_base_path: "/mnt/data/ML_folder/Data_KJ"  # 存储统一转换成json文件的主路径
-  md_base_path: "/mnt/data/ML_folder/Data_KJ_md"  # 中间md文件的主路径
+  input_base_path: "/mnt/data/ML_folder/Data_K"  # 存储统一转换成json文件的主路径
+  md_base_path: "/mnt/data/ML_folder/Data_K_md"  # 中间md文件的主路径
 
 
 
