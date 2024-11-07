@@ -4,15 +4,15 @@ LAKE_DATA_DIR = "/mnt/data/Lake_Data"
 
 # 数据库连接配置
 db_config = {
-    'host': '192.168.10.58',
+    'host': '',
     'user': 'root',
-    'password': 'cetc15s',
-    'database': 'lakehouse_db'
+    'password': '',
+    'database': ''
 }
 
 # Qdrant 配置
 QDRANT_CONFIG = {
-    'host': '192.168.10.58',
+    'host': '',
     'port': 6333,
     'timeout': 100000000
 }
