@@ -1,8 +1,9 @@
 # Infinite Lake
 ## 无湖：LLM专用数据框架
 本项目设计目标为实现高效的大语言模型预训练及后续流程所需数据集收集、清洗、归档、成集，当前的数据处理流程和工具难以满足大规模数据处理的需求，本架构借鉴了大数据领域的数据湖思路专门为LLM定制相关pipline。
+
 ## 框架结构
-框架结构如下：
+### 框架结构如下：
 ```
 Infinite Lake
 |-- loader
@@ -19,9 +20,9 @@ Infinite Lake
 |-- main_api_dpo.py
 |-- delete_paper_api.py
 |-- get_paths_sampling_api.py
-测试
+
 ```
-框架结构说明：
+### 框架结构说明：
 1. loader：数据加载模块，负责从原始数据源加载数据，并转换为.json或者.md标准格式。
 2. convert：数据转换模块，对JSON、JSONL、Parquet标准格式数据提供PipeLine处理。
 3. tools：工具模块，负责提供数据清洗、数据切分、数据融合、数据分类等功能函数。
