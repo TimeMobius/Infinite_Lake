@@ -1,0 +1,28 @@
+2024-09-11 14:04:23 : DEBUG  Building prefix dict from the default dictionary ...
+2024-09-11 14:04:23 : DEBUG  Loading model from cache /tmp/jieba.cache
+2024-09-11 14:04:24 : DEBUG  Loading model cost 0.878 seconds.
+2024-09-11 14:04:24 : DEBUG  Prefix dict has been built successfully.
+2024-09-20 11:38:23 : DEBUG  Building prefix dict from the default dictionary ...
+2024-09-20 11:38:23 : DEBUG  Loading model from cache /tmp/jieba.cache
+2024-09-20 11:38:24 : DEBUG  Loading model cost 0.942 seconds.
+2024-09-20 11:38:24 : DEBUG  Prefix dict has been built successfully.
+2024-09-20 11:41:26 : DEBUG  Building prefix dict from the default dictionary ...
+2024-09-20 11:41:26 : DEBUG  Loading model from cache /tmp/jieba.cache
+2024-09-20 11:41:27 : DEBUG  Loading model cost 0.760 seconds.
+2024-09-20 11:41:27 : DEBUG  Prefix dict has been built successfully.
+2024-09-20 13:52:07 : DEBUG  Building prefix dict from the default dictionary ...
+2024-09-20 13:52:07 : DEBUG  Loading model from cache /tmp/jieba.cache
+2024-09-20 13:52:07 : DEBUG  Loading model cost 0.782 seconds.
+2024-09-20 13:52:07 : DEBUG  Prefix dict has been built successfully.
+2024-09-20 14:15:24 : DEBUG  Building prefix dict from the default dictionary ...
+2024-09-20 14:15:24 : DEBUG  Loading model from cache /tmp/jieba.cache
+2024-09-20 14:15:25 : DEBUG  Loading model cost 0.796 seconds.
+2024-09-20 14:15:25 : DEBUG  Prefix dict has been built successfully.
+2024-09-22 11:35:59 : DEBUG  Building prefix dict from the default dictionary ...
+2024-09-22 11:35:59 : DEBUG  Loading model from cache /tmp/jieba.cache
+2024-09-22 11:36:00 : DEBUG  Loading model cost 0.766 seconds.
+2024-09-22 11:36:00 : DEBUG  Prefix dict has been built successfully.
+2024-10-09 08:51:18 : DEBUG  Building prefix dict from the default dictionary ...
+2024-10-09 08:51:19 : DEBUG  Dumping model to file cache /tmp/jieba.cache
+2024-10-09 08:51:19 : DEBUG  Loading model cost 0.930 seconds.
+2024-10-09 08:51:19 : DEBUG  Prefix dict has been built successfully.

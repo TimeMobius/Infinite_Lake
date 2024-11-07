@@ -6,22 +6,16 @@ import uvicorn
 import json
 import os
 from qdrant_client import QdrantClient, models
+from config_plugins import QDRANT_CONFIG, COLLECTION_NAME
+from config_plugins import db_config
 
 app = FastAPI()
 
-# 数据库配置
-db_config = {
-    'host': '192.168.10.58',
-    'user': 'root',
-    'password': 'cetc15s',
-    'database': 'lakehouse_db',
-    'charset': 'utf8mb4'
-}
 
 # Qdrant 配置
-qdrant_host = '192.168.10.58'
-qdrant_port = 6333
-collection_name = 'kj_datasets'
+qdrant_host = QDRANT_CONFIG['host']
+qdrant_port = QDRANT_CONFIG['port']
+collection_name = COLLECTION_NAME
 
 class DeleteRequest(BaseModel):
     title: Union[str, List[str]]
@@ -51,7 +45,7 @@ class DeleteRequest(BaseModel):
         return deleted_line_ids
 
     def delete_records(self, deleted_line_ids):
-        base_url = "/mnt/data/Lake_Data"
+        base_url = "path/Lake_Data"
         dataset_urls = [os.path.join(base_url, id[:4]) for id in deleted_line_ids]
         for dataset_url in dataset_urls:
             for id in deleted_line_ids:

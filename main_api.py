@@ -18,11 +18,9 @@ import sys
 import os
 import uvicorn
 import argparse
-import ray
-
 
 from settings import Settings
-from plugins.sql import get_engine, get_session_factory, initialize_database, TextMeta
+from plugins.sql import get_engine, get_session_factory, initialize_database, TextMeta_test
 
 from convert.parquet_pt import save_parquet_to_jsonl
 from convert.json_pt import save_json_to_jsonl
@@ -145,13 +143,13 @@ async def text_logging(item: Import_Text_Item):
         start_at = time.time()
 
         # 在添加之前检查dataset_name是否已存在
-        existing_dataset = session.query(TextMeta).filter(TextMeta.dataset_name == item.dataset_name).first()
+        existing_dataset = session.query(TextMeta_test).filter(TextMeta_test.dataset_name == item.dataset_name).first()
         if existing_dataset:
             # 如果找到了相同的dataset_name，返回提示信息
             return {"resultCode": "01", "resultMessage": "已添加同名数据集"}
 
         # 使用会话添加到text_meta表
-        new_text_meta = TextMeta(
+        new_text_meta = TextMeta_test(
             dataset_name=item.dataset_name,
             dataset_source=item.dataset_source,
             dataset_path=item.dataset_path,

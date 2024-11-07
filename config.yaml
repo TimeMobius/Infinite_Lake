@@ -12,7 +12,7 @@ storage:
 
 # 数据处理配置
 convert:
-  workers: 16  # 并行处理线程数
+  workers: 6  # 并行处理线程数
 
 # 数据库连接配置
 database:

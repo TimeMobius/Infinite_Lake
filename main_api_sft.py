@@ -20,13 +20,13 @@ import uvicorn
 import argparse
 
 from settings import Settings
-from plugins.sql import get_engine, get_session_factory, initialize_database, TextMeta_sft
+from plugins.sql import get_engine, get_session_factory, initialize_database, TextMeta_test
 
 # from convert.parquet import save_parquet_to_jsonl
 from convert.jsonl_sft import save_jsonl_to_jsonl
-#from convert.parquet import save_parquet_to_jsonl
-# from convert.jsonl import save_jsonl_to_jsonl
 
+# from convert.jsonl import save_jsonl_to_jsonl
+#from loader.data_lake_api import process_files_in_directory
 
 from sqlalchemy.exc import SQLAlchemyError
 from fastapi import FastAPI, HTTPException, Request
@@ -144,13 +144,13 @@ async def text_logging(item: Import_Text_Item):
         start_at = time.time()
 
         # 在添加之前检查dataset_name是否已存在
-        existing_dataset = session.query(TextMeta_sft).filter(TextMeta_sft.dataset_name == item.dataset_name).first()
+        existing_dataset = session.query(TextMeta_test).filter(TextMeta_test.dataset_name == item.dataset_name).first()
         if existing_dataset:
             # 如果找到了相同的dataset_name，返回提示信息
             return {"resultCode": "01", "resultMessage": "已添加同名数据集"}
 
         # 使用会话添加到text_meta表
-        new_text_meta = TextMeta_sft(
+        new_text_meta = TextMeta_test(
             dataset_name=item.dataset_name,
             dataset_source=item.dataset_source,
             dataset_path=item.dataset_path,
@@ -178,8 +178,7 @@ async def text_logging(item: Import_Text_Item):
         # 判断 original_format 是否为 jsonl
         if new_text_meta.original_format.lower() == 'jsonl':
             save_jsonl_to_jsonl(item.dataset_path, folder_path, item.dataset_type, settings)
-        #if new_text_meta.original_format.lower() == 'parquet':
-            #save_parquet_to_jsonl(item.dataset_path, folder_path, item.dataset_type, settings)
+
 
         end_at = time.time()
         time_length = (end_at - start_at)
